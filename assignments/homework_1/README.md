@@ -10,3 +10,11 @@ Build a simple "hello world" application in Flask. Here are the specs:
 ## Extra Credit:
 
 For extra credit, return a full HTML 5 page instead of plain text. The hello world message should be wrapped in `<h1>` tags and placed within the `<body>` of the page.
+
+## Running the Application Locally
+
+In the terminal, run:
+```sh
+export FLASK_ENV-development
+flask run
+```
