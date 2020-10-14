@@ -11,7 +11,14 @@ def home():
     if request.method == "GET":
         return render_template("index.html")
     else:
-        return
+        username = request.form["username"]
+        password = request.form["password"]
+
+        if username == "isaac" and password == "isaac":
+            return render_template("index.html", message = "Logged in Successfully")
+        else:
+            error_message = "Hint: isaac"
+            return render_template("index.html", message = error_message)
 
 @app.route("/stuff")
 def stuff():
