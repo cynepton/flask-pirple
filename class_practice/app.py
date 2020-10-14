@@ -9,13 +9,13 @@ def home():
     This handles Get and Post requests on the root endpoint
     """
     if request.method == "GET":
-        return render_template("index.html")
+        return render_template("index.html", message="Welcome!")
     else:
         username = request.form["username"]
         password = request.form["password"]
 
         if username == "isaac" and password == "isaac":
-            return render_template("index.html", message = "Logged in Successfully")
+            return render_template("stuff.html", message = "Logged in Successfully")
         else:
             error_message = "Hint: isaac"
             return render_template("index.html", message = error_message)
