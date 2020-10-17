@@ -17,3 +17,20 @@ def show_color(username):
     connection.close()
     message = "{username}\'s favorite color is {color}.".format(username=username, color=color)
     return message
+
+def check_password(username):
+    """
+    """
+    connection = sqlite3.connect("pirple_t.db", check_same_thread=False)
+    cursor = connection.cursor()
+    cursor.execute(
+        """SELECT password FROM users
+        WHERE username = '{username}'
+        ORDER BY pk DESC;""".format(username=username)
+        )
+    password = cursor.fetchone()
+
+    connection.commit()
+    cursor.close()
+    connection.close()
+    return password

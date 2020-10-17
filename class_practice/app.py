@@ -14,9 +14,9 @@ def home():
     else:
         username = request.form["username"]
         password = request.form["password"]
-
-        if username == "Isaac" and password == "isaac":
-            message = dataModel.show_color('isaac')
+        db_password = dataModel.check_password(username)
+        if password == db_password:
+            message = dataModel.show_color(username)
             return render_template("stuff.html", message = message)
         else:
             error_message = "Hint: isaac"
